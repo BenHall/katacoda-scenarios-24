@@ -11,16 +11,20 @@ terminal window to launch the container:
     -p 80:80 \
     -e "PGADMIN_DEFAULT_EMAIL=user@domain.com" \
     -e "PGADMIN_DEFAULT_PASSWORD=SuperSecret" \
-    -d dpage/pgadmin4:latest`{{execute}}
+    -e "PGADMIN_CONFIG_ENHANCED_COOKIE_PROTECTION=False" \
+    -d dpage/pgadmin4:snapshot`{{execute}}
 
 * **-p 80:80** - This directive maps port 80 of the container to port 80 of the
   host.
 * **-e "PGADMIN_DEFAULT_EMAIL=user@domain.com"** - This directive sets the
   initial username to login to pgAdmin with.
 * **-e "PGADMIN_DEFAULT_PASSWORD=SuperSecret"** - This directive sets the
-  initial password to login to pgAdmin with.  
-* **-e "-d dpage/pgadmin4:latest"** - This directive specifies the container
+  initial password to login to pgAdmin with.
+* **-e "PGADMIN_CONFIG_ENHANCED_COOKIE_PROTECTION=False"** - This configuration
+  variable disables enhanced cookie protection in pgAdmin, which may be
+  required when running behind a proxy server.   
+* **-e "-d dpage/pgadmin4:snapshot"** - This directive specifies the container
   and tag to run.
 
-Once the command has completed and the command prompt is shown again, click 
+Once the command has completed and the command prompt is shown again, click
 **Continue** to move to the next step.
