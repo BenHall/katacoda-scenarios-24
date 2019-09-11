@@ -11,9 +11,7 @@ terminal window to launch the container:
     -p 80:80 \
     -e "PGADMIN_DEFAULT_EMAIL=user@domain.com" \
     -e "PGADMIN_DEFAULT_PASSWORD=SuperSecret" \
-    -e "PGADMIN_CONFIG_ENHANCED_COOKIE_PROTECTION=False" \
-    -e 'PGADMIN_CONFIG_X_FRAME_OPTIONS="allow-from https://katacoda.com"' \
-    -e 'HTTP_X_SCHEME=https' \
+    -e 'PGADMIN_CONFIG_X_FRAME_OPTIONS="allow-from [[HOST_SUBDOMAIN]]-443-[[KATACODA_HOST]].environments.katacoda.com/"' \
     -d dpage/pgadmin4:kctest`{{execute}}
 
 * **-p 80:80** - This directive maps port 80 of the container to port 80 of the
@@ -22,9 +20,6 @@ terminal window to launch the container:
   initial username to login to pgAdmin with.
 * **-e "PGADMIN_DEFAULT_PASSWORD=SuperSecret"** - This directive sets the
   initial password to login to pgAdmin with.
-* **-e "PGADMIN_CONFIG_ENHANCED_COOKIE_PROTECTION=False"** - This configuration
-  variable disables enhanced cookie protection in pgAdmin, which may be
-  required when running behind a proxy server.   
 * **-e "-d dpage/pgadmin4:kctest"** - This directive specifies the container
   and tag to run.
 
