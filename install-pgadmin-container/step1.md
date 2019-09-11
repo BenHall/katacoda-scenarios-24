@@ -13,6 +13,7 @@ terminal window to launch the container:
     -e "PGADMIN_DEFAULT_PASSWORD=SuperSecret" \
     -e "PGADMIN_CONFIG_ENHANCED_COOKIE_PROTECTION=False" \
     -e 'PGADMIN_CONFIG_X_FRAME_OPTIONS="allow-from https://katacoda.com"' \
+    -e 'HTTP_X_SCHEME=https' \
     -d dpage/pgadmin4:kctest`{{execute}}
 
 * **-p 80:80** - This directive maps port 80 of the container to port 80 of the
